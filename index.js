@@ -30,7 +30,7 @@ app.get("/api/:date?", function (req, res) {
 
     if (!isNaN(date)) {
       console.log(date);
-      unix = Math.floor(date.getTime() / 1000);
+      unix = Math.floor(date.getTime());
       utc = date.toUTCString();
       json = { unix: unix, utc: utc };
     } else if (!isNaN(new Date(Number(req.params.date)))) {
@@ -42,7 +42,7 @@ app.get("/api/:date?", function (req, res) {
     }
   } else {
     var date = new Date();
-    unix = Math.floor(date.getTime() / 1000);
+    unix = Math.floor(date.getTime());
     utc = date.toUTCString();
     json = { unix: unix, utc: utc };
   }
